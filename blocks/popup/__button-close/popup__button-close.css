@@ -9,7 +9,6 @@
   top: -35px;
   cursor: pointer;
   padding: 0;
-  border: none;
   background-color: rgba(0, 0, 0, 0);
   transition: .3s;
   background-image: url("../../../images/Close_Icon.svg");
