@@ -1,4 +1,7 @@
 .popup__button-save {
+  background-color: 0;
+  border: 0;
+  outline: 0;
   width: 358px;
   min-height: 50px;
   display: flex;
