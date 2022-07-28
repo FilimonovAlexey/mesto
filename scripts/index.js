@@ -20,7 +20,7 @@ const cardTemplate = document.querySelector('.cards__template').content;
 const cardTitle = document.querySelector('.cards__title')
 
 function openPopup(popup) {
-  popup.classList.add('popup_opened')
+  popup.classList.add('popup_opened');
 }
 
 function closePopup(popup) {
@@ -46,7 +46,7 @@ function addFormSubmitHandler(evt) {
 }
 
 function addCard(container, element) {
-  container.prepend(element)
+  container.prepend(element);
 }
 
 function addInfoImage(name, link) {
