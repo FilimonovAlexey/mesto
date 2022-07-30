@@ -45,6 +45,7 @@ function handleProfileFormAdd(evt) {
   evt.preventDefault();
   addCard(cardsList, createCard(popupAddCardName.value, popupAddCardLink.value));
   closePopup(addPopup);
+  evt.target.reset();
 }
 
 function addCard(container, element) {
