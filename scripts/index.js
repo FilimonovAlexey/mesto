@@ -20,6 +20,7 @@ const profileJob = document.querySelector('.profile__job');
 const cardsList = document.querySelector('.cards');
 const cardTemplate = document.querySelector('.cards__template').content;
 const cardTitle = document.querySelector('.cards__title')
+const popups = Array.from(document.querySelectorAll('.popup'));
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -114,4 +115,13 @@ initialCards.forEach((data) => {
   addCard(cardsList, createCard(data.name, data.link))
 });
 
-
+popups.forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains('popup__icon')) {
+      closePopup(popup)
+    }
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(popup)
+    }
+  })
+})
