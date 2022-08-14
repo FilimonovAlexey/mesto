@@ -7,7 +7,7 @@
   height: 30px;
 }
 
-@media screen and (max-width: 560px){
+@media screen and (max-width: 540px){
   .popup__input-error {
     max-width: 238px;
     font-size: 10px;
