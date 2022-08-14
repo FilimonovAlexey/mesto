@@ -8,7 +8,7 @@
   align-items: center;
   background: #000000;
   color: #FFFFFF;
-  margin: 48px 0 37px;
+  margin: 9.33px 0 37px;
   border-radius: 2px;
   cursor: pointer;
   font-size: 18px;
@@ -24,7 +24,7 @@
   .popup__button-save {
     max-width: 238px;
     min-height: 46px;
-    margin: 45px 0 25px;
+    margin: 9.33px 0 25px;
     font-size: 14px;
     line-height: 17px;
   } 

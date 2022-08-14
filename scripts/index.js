@@ -23,11 +23,20 @@ const cardTitle = document.querySelector('.cards__title')
 const popups = Array.from(document.querySelectorAll('.popup'));
 
 function openPopup(popup) {
-  popup.classList.add('popup_opened');
+  popup.classList.add('popup_opened')
+  document.addEventListener('keydown', closePopupEsc)
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEsc)
+}
+
+function closePopupEsc(evt) {
+  if (evt.key === 'Escape') {
+    const popupCloseEscape = document.querySelector('.popup_opened')
+    closePopup(popupCloseEscape)
+  }
 }
 
 function fillProfileData() {
@@ -45,8 +54,8 @@ function handleProfileFormSubmit(evt) {
 function handleProfileFormAdd(evt) {
   evt.preventDefault();
   addCard(cardsList, createCard(popupAddCardName.value, popupAddCardLink.value));
+  addform.reset();
   closePopup(addPopup);
-  evt.target.reset();
 }
 
 function addCard(container, element) {
@@ -95,21 +104,8 @@ addButton.addEventListener('click', () => {
   openPopup(addPopup)
 });
 
-popupEditButtonClose.addEventListener('click', () => {
-  closePopup(editPopup)
-})
-
-popupAddButtonClose.addEventListener('click', () => {
-  closePopup(addPopup)
-})
-
-popupImageButtonClose.addEventListener('click', () => {
-  closePopup(imagePopup)
-})
-
 editform.addEventListener('submit', handleProfileFormSubmit);
 addform.addEventListener('submit', handleProfileFormAdd);
-
 
 initialCards.forEach((data) => {
   addCard(cardsList, createCard(data.name, data.link))
