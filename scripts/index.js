@@ -108,14 +108,6 @@ popups.forEach((popup) => {
   })
 })
 
-popups.forEach((popup) => {
-  document.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Escape' && popup.classList.contains('popup_opened')) {
-      closePopup(popup)
-    }
-  })
-})
-
 const editProfileValidator = new FormValidator(config, editform)
 const addCardValidator = new FormValidator(config, addform)
 editProfileValidator.enableValidation()
