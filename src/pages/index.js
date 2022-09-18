@@ -32,7 +32,6 @@ const popupEditForm = new PopupWithForm({
 const popupAddForm = new PopupWithForm({
   popup: addPopup,
   handleSubmitForm: (formData) => {
-    createCard(formData)
     cards.addItem(createCard(formData));
   }
 })
