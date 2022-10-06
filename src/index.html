@@ -17,11 +17,16 @@
     <main class="main">
 
       <section class="profile">
-        <img class="profile__avatar" src="<%=require('./images/Avatar.jpg')%>" alt="аватар">
+        <div class="profile__avatar">
+          <img class="profile__avatar-photo" src="#" alt="аватар">
+          <div class="profile__overlay">
+            <img class="profile__avatar-icon" src="<%=require('./images/avatar_edit.png')%>" alt="иконка">
+          </div>
+        </div>
         <div class="profile__info">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <h1 class="profile__name"></h1>
           <button class="profile__edit-button" type="button"></button>
-          <p class="profile__job">Исследователь океана</p>
+          <p class="profile__job"></p>
         </div>
         <button class="profile__add-button" type="button"></button>
       </section>
@@ -68,6 +73,32 @@
             src="<%=require('./images/Close_Icon.svg')%>" alt="кнопка закрыть"></button>
       </div>
     </div>
+
+    <div class="popup popup_delete-confirm">
+      <div class="popup__container">
+        <h2 class="popup__title popup__title_size_s">Вы уверены?</h2>
+        <form class="popup__form" name="deleteConfirmForm">
+          <button type="submit" class="popup__button-save">Да</button>
+        </form>
+        <button class="popup__button-close" type="button"><img class="popup__icon"
+            src="<%=require('./images/Close_Icon.svg')%>" alt="кнопка закрыть"></button>
+      </div>
+    </div>
+
+    <div class="popup popup_change-avatar">
+      <div class="popup__container">
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form class="popup__form popup__avatar-form" name="changeAvatarForm" novalidate>
+          <input type="url" class="popup__input popup__avatar-link" name="avatarLink" placeholder="Ссылка на аватар"
+            required id="popup__avatar-link">
+          <span class="popup__input-error popup__avatar-link-error"></span>
+          <button type="submit" class="popup__button-save">Сохранить</button>
+        </form>
+        <button class="popup__button-close" type="button"><img class="popup__icon"
+            src="<%=require('./images/Close_Icon.svg')%>" alt="кнопка закрыть"></button>
+      </div>
+    </div>
+
     <div class="popup popup_image">
       <div class="popup__container-image">
         <img class="popup__card-image" src="#" alt="#">
@@ -83,7 +114,10 @@
         <div class="cards__basket"></div>
         <div class="cards__caption">
           <h2 class="cards__title"></h2>
-          <button class="cards__like" type="button"></button>
+          <div class="cards__likes-info">
+            <button class="cards__like" type="button"></button>
+            <span class="cards__counter-likes"></span>
+          </div>
         </div>
       </div>
     </template>

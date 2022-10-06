@@ -1,7 +1,13 @@
 .profile__avatar {
-  margin: 0;
-  padding: 0;
-  border-radius: 100%;
-  max-width: 120px;
-  max-height: 120px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+}
+
+.profile__avatar:hover .profile__overlay {
+  background-color: rgb(0, 0, 0, .7);
+  opacity: 1;
 }
