@@ -479,11 +479,46 @@ template {
 } 
 
 .profile__avatar {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+}
+
+.profile__avatar:hover .profile__overlay {
+  background-color: rgb(0, 0, 0, .7);
+  opacity: 1;
+}
+.profile__avatar-photo {
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
   border-radius: 100%;
-  max-width: 120px;
-  max-height: 120px;
+  object-fit: cover;
+}
+
+
+
+
+
+.profile__avatar-icon {
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  top: 49px;
+  left: 47px;
+}
+.profile__overlay {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: .2s;
 }
 .profile__edit-button {
   grid-area: profile__edit-Button;
@@ -618,6 +653,7 @@ template {
   max-height: 282px;
   vertical-align: top;
   transition: .3s;
+  object-fit: cover;
 }
 
 .cards__image:hover {
@@ -662,6 +698,14 @@ template {
 }
 
 
+.cards__counter-likes {
+  font-size: 13px;
+  margin: 3px auto 0;
+}
+.cards__likes-info {
+  display: flex;
+  flex-direction: column;
+}
 .cards__like_active{
   background-image: url(e787eeb70bb65b7b453a.svg);
 }
@@ -881,6 +925,9 @@ template {
   color: #000000;
   background-color: white;
   pointer-events: none;
+}
+.popup__title_size_s {
+  margin: 34px 0 22px;
 }
 .popup__input_type_error {
   border-bottom: 1px solid #FF0000;
