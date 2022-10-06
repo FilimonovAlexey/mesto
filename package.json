@@ -9,15 +9,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/FilimonovAlexey/mesto.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/FilimonovAlexey/mesto/issues"
-  },
   "homepage": "https://github.com/FilimonovAlexey/mesto#readme",
   "devDependencies": {
     "@babel/core": "^7.17.8",
