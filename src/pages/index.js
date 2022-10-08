@@ -16,6 +16,7 @@ import {
   editform,
   addform,
   avatarForm,
+  config,
 } from '../utils/constants.js'
 
 import { Card } from '../components/Card.js'
@@ -56,9 +57,7 @@ Promise.all([api.getProfile(), api.getCards()])
       profileName: userData.name,
       profileJob: userData.about,
     })
-    userInfo.setUserAvatar({
-      profileAvatar: userData.avatar
-    })
+    userInfo.setUserAvatar(userData)
     userId = userData._id
     cards.renderer(cardsData)
   })
@@ -115,8 +114,8 @@ const popupChangeAvatarForm = new PopupWithForm({
     popupChangeAvatarForm.changeButtonText('Сохранение...')
     api.changeAvatar(formData.avatarLink)
       .then((res) => {
-        profileAvatar.src = res.avatar
-        popupChangeAvatarForm.close()
+        userInfo.setUserAvatar(res);
+        popupChangeAvatarForm.close();
       })
       .catch(err => console.log(`Ошибка.....: ${err}`))
       .finally(() => { popupChangeAvatarForm.changeButtonText('Сохранить') })
