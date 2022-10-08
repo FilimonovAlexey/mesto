@@ -3,12 +3,19 @@ export class Api {
     this._options = options
   }
 
+  _getResponseData(res) {
+    if (!res.ok) {
+        return Promise.reject(`Ошибка: ${res.status}`); 
+    }
+    return res.json();
+  }
+
   getProfile() {
     return fetch(
       `${this._options.baseUrl}/users/me`, {
       headers: this._options.headers
     })
-      .then((res) => res.ok ? res.json() : Promise.reject(res.status))
+      .then((res) => this._getResponseData(res))
   }
 
   getCards() {
@@ -16,7 +23,7 @@ export class Api {
       `${this._options.baseUrl}/cards`, {
       headers: this._options.headers
     })
-      .then((res) => res.ok ? res.json() : Promise.reject(res.status))
+    .then((res) => this._getResponseData(res))
   }
 
   editProfile(data) {
@@ -29,7 +36,7 @@ export class Api {
         about: data.job
       })
     })
-      .then((res) => res.ok ? res.json() : Promise.reject(res.status))
+    .then((res) => this._getResponseData(res))
   }
 
   addCard(data) {
@@ -42,7 +49,7 @@ export class Api {
         link: data.link
       })
     })
-      .then((res) => res.ok ? res.json() : Promise.reject(res.status))
+    .then((res) => this._getResponseData(res))
   }
 
   deleteCard(cardId) {
@@ -51,7 +58,7 @@ export class Api {
       method: 'DELETE',
       headers: this._options.headers,
     })
-      .then((res) => res.ok ? res.json() : Promise.reject(res.status))
+    .then((res) => this._getResponseData(res))
   }
 
   addLike(cardId) {
@@ -60,7 +67,7 @@ export class Api {
       method: 'PUT',
       headers: this._options.headers,
     })
-      .then((res) => res.ok ? res.json() : Promise.reject(res.status))
+    .then((res) => this._getResponseData(res))
   }
 
   deleteLike(cardId) {
@@ -69,7 +76,7 @@ export class Api {
       method: 'DELETE',
       headers: this._options.headers,
     })
-      .then((res) => res.ok ? res.json() : Promise.reject(res.status))
+    .then((res) => this._getResponseData(res))
   }
 
   changeAvatar(avatarLink) {
@@ -81,7 +88,7 @@ export class Api {
         avatar: avatarLink,
       })
     })
-      .then((res) => res.ok ? res.json() : Promise.reject(res.status))
+    .then((res) => this._getResponseData(res))
   }
 }
 

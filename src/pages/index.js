@@ -23,7 +23,7 @@ import { Section } from '../components/Section.js'
 import { PopupWithImage } from '../components/PopupWithImage.js'
 import { PopupWithForm } from '../components/PopupWithForm.js'
 import { UserInfo } from '../components/UserInfo.js'
-import { FormValidator, config } from '../components/FormValidator.js'
+import { FormValidator } from '../components/FormValidator.js'
 import { Api } from '../components/Api.js'
 import './index.css'
 
@@ -70,13 +70,13 @@ const popupEditForm = new PopupWithForm({
   popup: editPopup,
   handleSubmitForm: (formData) => {
     userInfo.setUserInfo(formData)
-    popupEditForm.changeButtonText('Сохранение...')
 
     api.editProfile({
       name: formData.profileName,
       job: formData.profileJob,
     })
       .then((res) => {
+        popupEditForm.changeButtonText('Сохранение...')
         profileAvatar.src = res.avatar
         popupEditForm.close()
       })

@@ -20,3 +20,10 @@ export const cardsList = document.querySelector('.cards');
 export const popups = Array.from(document.querySelectorAll('.popup'));
 export const popupCaption = document.querySelector('.popup__caption');
 export const popupCardImage = document.querySelector('.popup__card-image');
+export const config = {
+    formSelector: '.popup__form',
+    inactiveButtonClass: 'popup__button-save_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button-save'
+  };
