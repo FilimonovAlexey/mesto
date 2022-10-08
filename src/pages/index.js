@@ -16,6 +16,7 @@ import {
   editform,
   addform,
   avatarForm,
+  config,
 } from '../utils/constants.js'
 
 import { Card } from '../components/Card.js'
