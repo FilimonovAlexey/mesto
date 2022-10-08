@@ -1,3 +1,5 @@
+import { config } from '../utils/constants.js'
+
 class FormValidator {
   constructor(config, form) {
     this._formSelector = config.formSelector;
@@ -73,17 +75,7 @@ class FormValidator {
   }
 }
 
-const config = {
-  formSelector: '.popup__form',
-  inactiveButtonClass: 'popup__button-save_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button-save'
-}
-
-
-
-export { FormValidator, config }
+export { FormValidator }
 
 
 
