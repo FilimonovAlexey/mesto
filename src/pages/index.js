@@ -68,15 +68,15 @@ const popopImageData = new PopupWithImage(imagePopup)
 const popupEditForm = new PopupWithForm({
   popup: editPopup,
   handleSubmitForm: (formData) => {
-    userInfo.setUserInfo(formData)
-
+    
     api.editProfile({
       name: formData.profileName,
       job: formData.profileJob,
     })
       .then((res) => {
+        userInfo.setUserInfo(formData)
+        userInfo.setUserAvatar(res)
         popupEditForm.changeButtonText('Сохранение...')
-        profileAvatar.src = res.avatar
         popupEditForm.close()
       })
       .catch(err => console.log(`Ошибка.....: ${err}`))
